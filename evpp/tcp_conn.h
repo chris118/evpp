@@ -126,10 +126,6 @@ public:
     void ReserveInputBuffer(size_t len) { input_buffer_.Reserve(len); }
     void ReserveOutputBuffer(size_t len) { output_buffer_.Reserve(len); }
 
-    void SetWriteCompleteCallback(const WriteCompleteCallback cb) {
-        write_complete_fn_ = cb;
-    }
-
     void SetHighWaterMarkCallback(const HighWaterMarkCallback& cb, size_t mark);
 protected:
     friend class TCPClient;

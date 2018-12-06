@@ -4,8 +4,7 @@ set(LINKED_LOCKFREE_LIBRARIES evpp_boost_static ${DEPENDENT_LIBRARIES})
 set(LINKED_CONCURRENTQUEUE_LIBRARIES evpp_concurrentqueue_static ${DEPENDENT_LIBRARIES})
 if (WIN32)
 	link_directories(${PROJECT_SOURCE_DIR}/vsprojects/bin/${CMAKE_BUILD_TYPE}/
-                     ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/
-                     ${PROJECT_SOURCE_DIR}/3rdparty/glog-0.3.4/${CMAKE_BUILD_TYPE})
+                     ${LIBRARY_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/)
 endif(WIN32)
 
 add_executable(benchmark_post_task1 post_task1.cc)

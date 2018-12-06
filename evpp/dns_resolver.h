@@ -3,6 +3,7 @@
 #include "evpp/inner_pre.h"
 #include "evpp/duration.h"
 #include "evpp/sys_addrinfo.h"
+#include <vector>
 
 struct evdns_base;
 struct evdns_getaddrinfo_request;

@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/admin/src/cpp/evpp/examples/http/http_client_request/client05.cc
+stdio.h
+-
+stdlib.h
+-
+evpp/event_loop_thread.h
+-
+evpp/httpc/request.h
+-
+evpp/httpc/conn.h
+-
+evpp/httpc/response.h
+-
+../../../examples/winmain-inl.h
+/Users/admin/src/cpp/evpp/examples/winmain-inl.h
+
+/Users/admin/src/cpp/evpp/examples/winmain-inl.h
+

@@ -7,6 +7,8 @@
 
 #include <thread>
 
+#include <vector>
+
 namespace evpp {
 
 class EventLoopThreadPool;

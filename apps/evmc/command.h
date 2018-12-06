@@ -54,9 +54,9 @@ public:
 private:
     virtual void RequestBuffer(std::string& str) = 0;
     evpp::EventLoop* caller_loop_;
-    uint32_t id_; // ²¢·ÇÈ«¾Öid£¬Ö»ÊÇ¸÷¸ömemc_clientÄÚ²¿µÄÐòºÅ; mgetµÄ¶à¸öÃüÁî¹²ÓÃÒ»¸öid
+    uint32_t id_; // ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½idï¿½ï¿½Ö»ï¿½Ç¸ï¿½ï¿½ï¿½memc_clientï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½; mgetï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½î¹²ï¿½ï¿½Ò»ï¿½ï¿½id
     uint16_t vbucket_id_;
-    std::vector<uint16_t> server_id_history_; // Ö´ÐÐÊ±´Ó¶à¸ö±¸Ñ¡serverÖÐËùÑ¡¶¨µÄserver
+    std::vector<uint16_t> server_id_history_; // Ö´ï¿½ï¿½Ê±ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½Ñ¡serverï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½server
 };
 
 typedef std::shared_ptr<Command> CommandPtr;
@@ -108,7 +108,7 @@ public:
     }
 
     virtual void OnError(int err_code) {
-        LOG(WARNING) << "GetCommand OnError id=" << id();
+        //LOG(WARNING) << "GetCommand OnError id=" << id();
         auto loop = caller_loop();
         if (loop && !loop->IsInLoopThread()) {
             caller_loop()->RunInLoop(std::bind(get_callback_, std::move(key_),
@@ -141,7 +141,7 @@ public:
     }
 
     virtual void OnError(int err_code) {
-        LOG(WARNING) << "PrefixGetCommand OnError id=" << id();
+        //LOG(WARNING) << "PrefixGetCommand OnError id=" << id();
         mget_result_->code = err_code;
         auto loop = caller_loop();
         if (loop && !loop->IsInLoopThread()) {
@@ -257,7 +257,7 @@ public:
     }
 
     virtual void OnError(int err_code) {
-        LOG(WARNING) << "MultiGetCommand OnError id=" << id();
+       // LOG(WARNING) << "MultiGetCommand OnError id=" << id();
         auto& keys = get_handler()->FindKeysByid(vbucket_id());
         auto& result_map = get_handler()->get_result();
         auto k = result_map.begin();
@@ -285,7 +285,7 @@ public:
     }
 
     virtual void OnError(int err_code) {
-        LOG(WARNING) << "MultiGetCommand OnError id =" << id();
+        //LOG(WARNING) << "MultiGetCommand OnError id =" << id();
         callback_(multiget_result_);
     }
     virtual void OnMultiGetCommandDone(int resp_code, std::string& key, std::string& value);
@@ -312,7 +312,7 @@ public:
     }
 
     virtual void OnError(int err_code) {
-        LOG(WARNING) << "prefixMultiGetCommand OnError id=" << id();
+        //LOG(WARNING) << "prefixMultiGetCommand OnError id=" << id();
         auto& keys = get_handler()->FindKeysByid(vbucket_id());
         auto& result_map = get_handler()->get_result();
         auto k = result_map.begin();
@@ -339,7 +339,7 @@ public:
         : Command(evloop, vbucket), key_(key), remove_callback_(callback) {
     }
     virtual void OnError(int err_code) {
-        LOG(WARNING) << "RemoveCommand OnError id=" << id();
+        //LOG(WARNING) << "RemoveCommand OnError id=" << id();
 
         auto loop = caller_loop();
         if (loop && !loop->IsInLoopThread()) {

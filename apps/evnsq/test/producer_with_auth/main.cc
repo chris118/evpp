@@ -44,9 +44,9 @@ void Close(evnsq::Producer* p) {
 }
 
 int main(int argc, char* argv[]) {
-    google::InitGoogleLogging(argv[0]);
+    //google::InitGoogleLogging(argv[0]);
 
-    FLAGS_stderrthreshold = 0;
+    //FLAGS_stderrthreshold = 0;
 
     int opt = 0;
     //int digit_optind = 0;

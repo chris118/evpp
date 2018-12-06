@@ -3,35 +3,35 @@
 #include "evpp/platform_config.h"
 
 #ifdef __cplusplus
-#define GOOGLE_GLOG_DLL_DECL           // Ê¹ÓÃ¾²Ì¬glog¿âÊ±£¬±ØÐë¶¨ÒåÕâ¸ö
-#define GLOG_NO_ABBREVIATED_SEVERITIES // Ã»Õâ¸ö±àÒë»á³ö´í,´«ËµÒòÎªºÍWindows.h³åÍ»
+#define GOOGLE_GLOG_DLL_DECL           // Ê¹ï¿½Ã¾ï¿½Ì¬glogï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¨ï¿½ï¿½ï¿½ï¿½ï¿½
+#define GLOG_NO_ABBREVIATED_SEVERITIES // Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ëµï¿½ï¿½Îªï¿½ï¿½Windows.hï¿½ï¿½Í»
 
-#include <glog/logging.h>
+// #include <glog/logging.h>
 
 #ifdef GOOGLE_STRIP_LOG
 
 #if GOOGLE_STRIP_LOG == 0
-#define LOG_TRACE LOG(INFO)
-#define LOG_DEBUG LOG(INFO)
-#define LOG_INFO  LOG(INFO)
-#define DLOG_TRACE LOG(INFO) << __PRETTY_FUNCTION__ << " this=" << this << " "
+#define LOG_TRACE std::cout << __FILE__ << ":" << __LINE__ << " "
+#define LOG_DEBUG std::cout << __FILE__ << ":" << __LINE__ << " "
+#define LOG_INFO  std::cout << __FILE__ << ":" << __LINE__ << " "
+#define DLOG_TRACE std::cout << __FILE__ << ":" << __LINE__ << " " << __PRETTY_FUNCTION__ << " this=" << this << " "
 #else
-#define LOG_TRACE if (false) LOG(INFO)
-#define LOG_DEBUG if (false) LOG(INFO)
-#define LOG_INFO  if (false) LOG(INFO)
-#define DLOG_TRACE if (false) LOG(INFO)
+#define LOG_TRACE if (false) std::cout << __FILE__ << ":" << __LINE__ << " "
+#define LOG_DEBUG if (false) std::cout << __FILE__ << ":" << __LINE__ << " "
+#define LOG_INFO  if (false) std::cout << __FILE__ << ":" << __LINE__ << " "
+#define DLOG_TRACE if (false) std::cout << __FILE__ << ":" << __LINE__ << " "
 #endif
 
 #if GOOGLE_STRIP_LOG <= 1
-#define LOG_WARN  LOG(WARNING)
-#define DLOG_WARN LOG(WARNING) << __PRETTY_FUNCTION__ << " this=" << this << " "
+#define LOG_WARN  std::cout << __FILE__ << ":" << __LINE__ << " "
+#define DLOG_WARN std::cout << __FILE__ << ":" << __LINE__ << " " << __PRETTY_FUNCTION__ << " this=" << this << " "
 #else
-#define LOG_WARN  if (false) LOG(WARNING)
-#define DLOG_WARN if (false) LOG(WARNING)
+#define LOG_WARN  if (false) std::cout << __FILE__ << ":" << __LINE__ << " "
+#define DLOG_WARN if (false) std::cout << __FILE__ << ":" << __LINE__ << " "
 #endif
 
-#define LOG_ERROR LOG(ERROR)
-#define LOG_FATAL LOG(FATAL)
+#define LOG_ERROR std::cout << __FILE__ << ":" << __LINE__ << " "
+#define LOG_FATAL std::cout << __FILE__ << ":" << __LINE__ << " "
 
 #else
 #define LOG_TRACE std::cout << __FILE__ << ":" << __LINE__ << " "

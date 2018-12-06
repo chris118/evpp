@@ -99,7 +99,7 @@ void NSQConn::OnRecv(const evpp::TCPConnPtr& conn, evpp::Buffer* buf) {
     while (buf->size() > 4) {
         size_t size = buf->PeekInt32();
 
-        if (buf->size() < size + 4) {
+        if (buf->size() < size) {
             // need to read more data
             return;
         }
@@ -337,7 +337,7 @@ bool NSQConn::WritePublishCommand(const CommandPtr& c) {
     assert(c->IsPublish());
     assert(nsq_client_->IsProducer());
     if (wait_ack_.size() >= static_cast<Producer*>(nsq_client_)->high_water_mark()) {
-        LOG_EVERY_N(WARNING, 100000) << "Too many messages are waiting a response ACK. Please try again later.";
+       // LOG_EVERY_N(WARNING, 100000) << "Too many messages are waiting a response ACK. Please try again later.";
         return false;
     }
 

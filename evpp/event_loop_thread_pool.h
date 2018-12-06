@@ -2,6 +2,7 @@
 
 
 #include <atomic>
+#include <vector>
 
 #include "evpp/event_loop_thread.h"
 

@@ -20,9 +20,9 @@ static void HandleHTTPResponse(const std::shared_ptr<evpp::httpc::Response>& res
 }
 
 int main(int argc, char* argv[]) {
-    google::InitGoogleLogging(argv[0]);
-    FLAGS_stderrthreshold = 0;
-    FLAGS_minloglevel=0;
+    //google::InitGoogleLogging(argv[0]);
+    //FLAGS_stderrthreshold = 0;
+    //FLAGS_minloglevel=0;
 
     evpp::EventLoopThread t;
     t.Start(true);
