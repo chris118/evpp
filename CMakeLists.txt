@@ -61,9 +61,7 @@ if (HTTPS)
 endif (HTTPS)
 
 
-if (CMAKE_BENCHMARK_TESTING)
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DH_BENCHMARK_TESTING=1")
-endif (CMAKE_BENCHMARK_TESTING)
+
 
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
@@ -91,7 +89,6 @@ add_subdirectory (labs)
 if (NOT EVPP_VCPKG_BUILD)
     add_subdirectory (test)
     add_subdirectory (examples)
-    add_subdirectory (benchmark)
 endif ()
 
 set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
