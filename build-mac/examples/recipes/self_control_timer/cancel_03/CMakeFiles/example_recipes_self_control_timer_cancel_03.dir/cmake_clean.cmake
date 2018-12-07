@@ -1,0 +1,12 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/example_recipes_self_control_timer_cancel_03.dir/event_watcher.cc.o"
+  "CMakeFiles/example_recipes_self_control_timer_cancel_03.dir/invoke_timer.cc.o"
+  "CMakeFiles/example_recipes_self_control_timer_cancel_03.dir/main.cc.o"
+  "../../../../bin/example_recipes_self_control_timer_cancel_03.pdb"
+  "../../../../bin/example_recipes_self_control_timer_cancel_03"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/example_recipes_self_control_timer_cancel_03.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
